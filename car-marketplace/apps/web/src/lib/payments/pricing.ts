@@ -1,0 +1,1 @@
+export const LISTING_BOOST_PRICE_KES = 500;

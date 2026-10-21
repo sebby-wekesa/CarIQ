@@ -1,0 +1,8 @@
+-- Local development seed. Runs on `supabase db reset` only — never in production.
+-- Reference data (counties, catalogue, plans) lives in migrations so every environment has it.
+--
+-- Sprint 0 has no demo data: sign in with a test number from config.toml
+-- (0700 000 001, code 123456) to create your first user.
+--
+-- To make yourself an admin locally after signing in:
+--   update public.profiles set role = 'admin' where phone = '+254700000001';

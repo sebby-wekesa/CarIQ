@@ -1,0 +1,307 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens
+ * Ink and paper with the yellow of a Kenyan rear number plate and forest green for trust.
+ * Yellow marks the brand and high-intent actions; green carries the quieter interface.
+ * Type is a single family (Archivo) used at two widths: condensed for display, normal for reading.
+ */
+@theme {
+  --color-ink: #10231c;
+  --color-ink-soft: #2b3c35;
+  --color-muted: #4e5f58;
+  --color-paper: #f4f6f3;
+  --color-surface: #ffffff;
+  --color-mist: #d5ddd8;
+  --color-plate: #f5c400;
+  --color-plate-soft: #fff4c2;
+  --color-forest: #145a43;
+  --color-forest-deep: #0e4332;
+  --color-danger: #b42318;
+  --color-danger-soft: #fdecea;
+  --color-success: #1f7a4d;
+  --color-success-soft: #e6f4ec;
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+
+  /* Major-third scale from a 16px base */
+  --text-xs: 0.8rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5625rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+  --text-4xl: 3.052rem;
+  --text-5xl: 3.815rem;
+
+  --radius-control: 0.625rem;
+  --radius-plate: 0.375rem;
+}
+
+@utility display {
+  font-stretch: 70%;
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+@utility plate-type {
+  font-stretch: 82%;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-forest);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-plate);
+    color: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .home-hero-surface {
+    background:
+      radial-gradient(ellipse at 8% 7%, rgb(245 196 0 / 9%), transparent 19rem),
+      radial-gradient(ellipse at 93% 46%, rgb(94 142 115 / 20%), transparent 29rem),
+      linear-gradient(126deg, #0d211a 0%, #10271f 58%, #18362a 100%);
+  }
+
+  .home-kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--color-plate);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .home-kicker-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    flex: none;
+    border-radius: 999px;
+    background: var(--color-plate);
+    box-shadow: 0 0 0 0.25rem rgb(245 196 0 / 12%);
+  }
+
+  .home-hero-visual {
+    background: #6d7467;
+    box-shadow: 0 28px 70px -38px rgb(0 0 0 / 64%);
+  }
+
+  .home-hero-image {
+    object-position: 68% center;
+  }
+
+  .home-hero-image-shade {
+    background: linear-gradient(180deg, rgb(9 24 18 / 2%) 36%, rgb(9 24 18 / 64%) 100%);
+  }
+
+  .home-hero-mark {
+    width: 3.4rem;
+    height: 2.1rem;
+    place-items: center;
+    border: 2px solid rgb(16 35 28 / 18%);
+    border-radius: 0.35rem;
+    background: var(--color-plate);
+    color: var(--color-ink);
+    font-stretch: 82%;
+    font-size: 0.83rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+
+  .home-hero-secondary-link {
+    display: inline-flex;
+    min-height: 3.25rem;
+    align-items: center;
+    border-radius: var(--radius-control);
+    padding-inline: 1rem;
+    color: rgb(255 255 255 / 88%);
+    font-weight: 700;
+    text-decoration-color: rgb(255 255 255 / 40%);
+    text-underline-offset: 0.3rem;
+    transition: color 150ms ease, text-decoration-color 150ms ease;
+  }
+
+  .home-hero-secondary-link:hover {
+    color: var(--color-plate);
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+  }
+
+  .home-search-card {
+    box-shadow: 0 24px 58px -32px rgb(0 0 0 / 44%);
+  }
+
+  .home-search-tab {
+    display: inline-flex;
+    min-height: 3.2rem;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+    padding: 0 0.9rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: color 150ms ease, border-color 150ms ease;
+  }
+
+  .home-search-tab:hover {
+    color: var(--color-forest);
+  }
+
+  .home-search-tab-active {
+    border-bottom-color: var(--color-plate);
+    color: var(--color-ink);
+  }
+
+  .home-seller-note {
+    margin-top: 0.9rem;
+    color: rgb(255 255 255 / 64%);
+    font-size: 0.84rem;
+  }
+
+  .home-seller-note a {
+    color: var(--color-plate);
+    font-weight: 700;
+    text-underline-offset: 0.2rem;
+  }
+
+  .section-kicker {
+    color: var(--color-forest);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .section-arrow-link {
+    display: inline-flex;
+    min-height: 2.75rem;
+    flex: none;
+    align-items: center;
+    gap: 0.55rem;
+    border-radius: var(--radius-control);
+    padding: 0 0.8rem;
+    color: var(--color-forest);
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+
+  .section-arrow-link:hover {
+    background: var(--color-plate-soft);
+    color: var(--color-forest-deep);
+  }
+
+  .home-empty-listings {
+    box-shadow: 0 16px 40px -32px rgb(16 35 28 / 38%);
+  }
+
+  .make-chip {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--color-mist);
+    border-radius: 999px;
+    background: var(--color-surface);
+    padding: 0 1rem;
+    color: var(--color-ink);
+    font-size: 0.9rem;
+    font-weight: 650;
+    transition: border-color 150ms ease, background-color 150ms ease, transform 150ms ease;
+  }
+
+  .make-chip:hover {
+    transform: translateY(-1px);
+    border-color: rgb(20 90 67 / 38%);
+    background: #f8fbf7;
+  }
+
+  .confidence-card {
+    min-height: 13rem;
+    border: 1px solid var(--color-mist);
+    border-radius: 1rem;
+    background: var(--color-surface);
+    padding: 1.25rem;
+  }
+
+  .confidence-icon {
+    display: grid;
+    width: 2.65rem;
+    height: 2.65rem;
+    place-items: center;
+    border-radius: 0.85rem;
+    background: var(--color-plate-soft);
+    color: var(--color-forest);
+  }
+
+  .confidence-card h3 {
+    margin-top: 1rem;
+    color: var(--color-ink);
+    font-size: 1.03rem;
+    font-weight: 750;
+  }
+
+  .confidence-card p {
+    margin-top: 0.35rem;
+    max-width: 34ch;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .home-seller-callout {
+    background-image:
+      radial-gradient(ellipse at 86% 12%, rgb(245 196 0 / 9%), transparent 22rem),
+      linear-gradient(120deg, rgb(14 67 50 / 100%), rgb(9 50 37 / 100%));
+  }
+
+  .site-footer-link {
+    color: rgb(255 255 255 / 75%);
+    text-underline-offset: 0.2rem;
+    transition: color 150ms ease;
+  }
+
+  .site-footer-link:hover {
+    color: var(--color-plate);
+    text-decoration: underline;
+  }
+}
