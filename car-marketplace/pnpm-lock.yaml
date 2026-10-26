@@ -20,6 +20,9 @@ importers:
       '@cm/messaging':
         specifier: workspace:*
         version: link:../../packages/messaging
+      '@cm/payments':
+        specifier: workspace:*
+        version: link:../../packages/payments
       '@cm/shared':
         specifier: workspace:*
         version: link:../../packages/shared

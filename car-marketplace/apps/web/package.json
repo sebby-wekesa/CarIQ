@@ -13,6 +13,7 @@
   "dependencies": {
     "@cm/db": "workspace:*",
     "@cm/messaging": "workspace:*",
+    "@cm/payments": "workspace:*",
     "@cm/shared": "workspace:*",
     "@supabase/postgrest-js": "2.118.0",
     "@supabase/ssr": "^0.12.7",
