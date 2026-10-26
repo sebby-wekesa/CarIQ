@@ -22,7 +22,9 @@ export function SiteHeader() {
           </span>
         </Link>
         <nav aria-label="Main" className="flex shrink-0 items-center gap-0 sm:gap-1.5">
-          <PrimaryNavLinks />
+          <Suspense fallback={<span className="block h-11 w-20 sm:w-72" aria-hidden />}>
+            <PrimaryNavLinks />
+          </Suspense>
           <SavedLink />
           <MessagesLink />
           <Suspense fallback={<span className="block h-10 w-10 sm:h-11 sm:w-20" aria-hidden />}>
