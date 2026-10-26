@@ -1,7 +1,11 @@
 import Link from "next/link";
+import { cacheLife } from "next/cache";
 import { env } from "@/lib/env";
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  "use cache";
+  cacheLife("days");
+
   return (
     <footer className="mt-auto bg-forest-deep text-white">
       <div className="mx-auto grid w-full max-w-7xl gap-9 px-4 py-10 sm:px-6 sm:py-12 md:grid-cols-[1.4fr_0.8fr_1fr]">
@@ -25,7 +29,7 @@ export function SiteFooter() {
           <h2 className="mb-2 text-xs font-bold uppercase tracking-[0.13em] text-white/45">Selling a car?</h2>
           <Link href="/sell" className="site-footer-link">List your car with CarIQ</Link>
           <p className="mt-4 max-w-[42ch] text-sm leading-relaxed text-white/65">
-            Never pay a seller before you’ve seen the car and its logbook.
+            Inspect the car, verify the logbook, then pay with confidence.
           </p>
         </div>
       </div>
